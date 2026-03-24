@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.PrimaryKey
 import androidx.room.Query
-import kotlinx.coroutines.flow.Flow
 
 class DummyDAO {
 
@@ -27,7 +26,7 @@ class DummyDAO {
         suspend fun insertSinglePost(user: Post)
 
         @Query("SELECT * FROM posts")
-        fun getAllPosts(): Flow<List<Post>>
+        fun getAllPosts(): List<Post>
     }
 
 }

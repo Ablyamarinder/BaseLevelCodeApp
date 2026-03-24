@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NetworkViewModel @Inject constructor(
-    private val connectivityObserver: ConnectivityObserver
+    connectivityObserver: ConnectivityObserver
 ) : ViewModel() {
 
     val networkStatus = connectivityObserver.observe()

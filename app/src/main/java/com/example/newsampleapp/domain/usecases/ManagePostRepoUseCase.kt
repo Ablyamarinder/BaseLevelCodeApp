@@ -8,10 +8,10 @@ import javax.inject.Inject
 
 class ManagePostRepoUseCase @Inject constructor(private val postRepo: PostsRepository) {
 
-    fun getPosts(): Flow<List<PostModel>> {
+    fun getPosts(): Flow<Result<List<PostModel>>> {
         return flow {
             val response = postRepo.getPosts()
-            emit(response.getOrNull() ?: emptyList())
+            emit(response)
         }
     }
 

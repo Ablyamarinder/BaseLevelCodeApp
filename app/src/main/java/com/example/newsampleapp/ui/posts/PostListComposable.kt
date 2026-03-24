@@ -10,26 +10,49 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.example.newsampleapp.R
 import com.example.newsampleapp.data.model.PostModel
+import com.example.newsampleapp.ui.handlestates.UiState
 import com.example.newsampleapp.utils.TextUtils
+import com.example.newsampleapp.utils.toastutils.ToastUtils
 
 
 @Composable
-fun PostListComposable(list: List<PostModel>) {
+fun PostListComposable(postViewModel: PostViewModel = hiltViewModel()) {
+    val state = postViewModel.uiState.collectAsState()
+    val context = LocalContext.current
 
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
-        items(list.size) { index ->
-            PostItemComposable(list[index])
+
+    when (state.value) {
+        is UiState.Loading -> {
+            CircularProgressIndicator()
+        }
+
+        is UiState.Success<*> -> {
+            val list = (state.value as UiState.Success).data
+            LazyColumn(modifier = Modifier.fillMaxSize()) {
+                items(list.size) { index ->
+                    PostItemComposable(list[index])
+                }
+            }
+        }
+
+        is UiState.Error -> {
+            ToastUtils.showLongToast(
+                context,
+                (state.value as UiState.Error).errorMessage + ""
+            )
         }
     }
-
 }
 
 @Composable
@@ -39,7 +62,7 @@ fun PostItemComposable(item: PostModel) {
             .fillMaxWidth()
             .padding(dimensionResource(R.dimen.size_15))
             .background(
-                color = MaterialTheme.colorScheme.primary,
+                color = MaterialTheme.colorScheme.background,
                 shape = RoundedCornerShape(dimensionResource(R.dimen.size_10))
             )
     ) {
@@ -52,14 +75,14 @@ fun PostItemComposable(item: PostModel) {
             Text(
                 modifier = Modifier.padding(dimensionResource(R.dimen.size_10)),
                 text = TextUtils.capitalizeText(item.title),
-                color = Color.Black,
+                color = MaterialTheme.colorScheme.primary,
                 style = MaterialTheme.typography.titleLarge
             )
             Spacer(Modifier.height(dimensionResource(R.dimen.size_15)))
             Text(
                 modifier = Modifier.padding(dimensionResource(R.dimen.size_5)),
                 text = TextUtils.capitalizeText(item.body),
-                color = Color.Black,
+                color = MaterialTheme.colorScheme.secondary,
                 style = MaterialTheme.typography.titleMedium
             )
         }
