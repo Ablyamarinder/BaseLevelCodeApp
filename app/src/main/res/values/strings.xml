@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NewSampleApp</string>
+    <string name="no_internet_message">No Internet, Please try again later</string>
+    <string name="internet_reconnected_message">You are back online</string>
+</resources>

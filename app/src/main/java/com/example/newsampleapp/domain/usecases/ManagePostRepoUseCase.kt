@@ -1,0 +1,21 @@
+package com.example.newsampleapp.domain.usecases
+
+import com.example.newsampleapp.data.model.PostModel
+import com.example.newsampleapp.domain.repository.PostsRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
+
+class ManagePostRepoUseCase @Inject constructor(private val postRepo: PostsRepository) {
+
+    fun getPosts(): Flow<List<PostModel>> {
+        return flow {
+            val response = postRepo.getPosts()
+            emit(response.getOrNull() ?: emptyList())
+        }
+    }
+
+    suspend fun savePosts(list: List<PostModel>) {
+        postRepo.savePosts(list)
+    }
+}
