@@ -28,9 +28,10 @@ import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.unit.dp
+import com.ablysoft.core.R
 import com.ablysoft.core.designsystem.theme.CustomAppTheme
 import kotlinx.coroutines.launch
 
@@ -93,8 +94,8 @@ fun CustomLoadingWheel(
     // Draws out the LoadingWheel Canvas composable and sets the animations
     Canvas(
         modifier = modifier
-            .size(48.dp)
-            .padding(8.dp)
+            .size(dimensionResource(R.dimen.size_45))
+            .padding(dimensionResource(R.dimen.size_8))
             .graphicsLayer { rotationZ = rotationAnim }
             .semantics { contentDescription = contentDesc }
             .testTag("loadingWheel"),
@@ -121,11 +122,11 @@ fun CustomOverlayLoadingWheel(
     modifier: Modifier = Modifier,
 ) {
     Surface(
-        shape = RoundedCornerShape(60.dp),
-        shadowElevation = 8.dp,
+        shape = RoundedCornerShape(dimensionResource(R.dimen.size_60)),
+        shadowElevation = dimensionResource(R.dimen.size_8),
         color = MaterialTheme.colorScheme.surface.copy(alpha = 0.83f),
         modifier = modifier
-            .size(60.dp),
+            .size(dimensionResource(R.dimen.size_60)),
     ) {
         CustomLoadingWheel(
             contentDesc = contentDesc,

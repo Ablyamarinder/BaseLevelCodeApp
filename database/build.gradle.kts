@@ -8,7 +8,7 @@ plugins {
 
 android {
     compileSdk = 36
-    namespace = "com.google.samples.apps.nowinandroid.core.database"
+    namespace = "com.ablysoft.core.database"
     room {
         // Specifies the directory for Room schema files.
         // The path uses $projectDir to reference the root directory of your project.

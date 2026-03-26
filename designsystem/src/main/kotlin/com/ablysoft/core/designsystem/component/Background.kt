@@ -14,8 +14,10 @@ import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.ablysoft.core.R
 import com.ablysoft.core.designsystem.theme.CustomAppTheme
 import com.ablysoft.core.designsystem.theme.GradientColors
 import com.ablysoft.core.designsystem.theme.LocalBackgroundTheme
@@ -122,7 +124,7 @@ fun CustomGradientBackground(
 }
 
 /**
- * Multipreview annotation that represents light and dark themes. Add this annotation to a
+ * MultiPreview annotation that represents light and dark themes. Add this annotation to a
  * composable to render the both themes.
  */
 //@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, name = "Light theme")
@@ -133,7 +135,7 @@ annotation class ThemePreviews
 @Composable
 fun BackgroundDefault() {
     CustomAppTheme(disableDynamicTheming = true) {
-        CustomBackground(Modifier.size(100.dp), content = {})
+        CustomBackground(Modifier.size(dimensionResource(R.dimen.size_100)), content = {})
     }
 }
 
@@ -141,7 +143,7 @@ fun BackgroundDefault() {
 @Composable
 fun BackgroundDynamic() {
     CustomAppTheme(disableDynamicTheming = false) {
-        CustomBackground(Modifier.size(100.dp), content = {})
+        CustomBackground(Modifier.size(dimensionResource(R.dimen.size_100)), content = {})
     }
 }
 
@@ -149,7 +151,7 @@ fun BackgroundDynamic() {
 @Composable
 fun BackgroundAndroid() {
     CustomAppTheme(androidTheme = true) {
-        CustomBackground(Modifier.size(100.dp), content = {})
+        CustomBackground(Modifier.size(dimensionResource(R.dimen.size_100)), content = {})
     }
 }
 
@@ -157,7 +159,7 @@ fun BackgroundAndroid() {
 @Composable
 fun GradientBackgroundDefault() {
     CustomAppTheme(disableDynamicTheming = true) {
-        CustomGradientBackground(Modifier.size(100.dp), content = {})
+        CustomGradientBackground(Modifier.size(dimensionResource(R.dimen.size_100)), content = {})
     }
 }
 
@@ -165,7 +167,7 @@ fun GradientBackgroundDefault() {
 @Composable
 fun GradientBackgroundDynamic() {
     CustomAppTheme(disableDynamicTheming = false) {
-        CustomGradientBackground(Modifier.size(100.dp), content = {})
+        CustomGradientBackground(Modifier.size(dimensionResource(R.dimen.size_100)), content = {})
     }
 }
 
@@ -173,6 +175,6 @@ fun GradientBackgroundDynamic() {
 @Composable
 fun GradientBackgroundAndroid() {
     CustomAppTheme(androidTheme = true) {
-        CustomGradientBackground(Modifier.size(100.dp), content = {})
+        CustomGradientBackground(Modifier.size(dimensionResource(R.dimen.size_100)), content = {})
     }
 }

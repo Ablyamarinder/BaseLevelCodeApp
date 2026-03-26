@@ -12,8 +12,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.ablysoft.core.R
 import com.ablysoft.core.designsystem.theme.CustomAppTheme
 
 /**
@@ -58,7 +60,7 @@ fun CustomTab(
  *
  * @param selectedTabIndex The index of the currently selected tab.
  * @param modifier Modifier to be applied to the tab row.
- * @param tabs The tabs inside this tab row. Typically this will be multiple [CustomTab]s. Each element
+ * @param tabs The tabs inside this tab row. Typically, this will be multiple [CustomTab]s. Each element
  * inside this lambda will be measured and placed evenly across the row, each taking up equal space.
  */
 @Composable
@@ -75,7 +77,7 @@ fun CustomTabRow(
         indicator = { tabPositions ->
             TabRowDefaults.SecondaryIndicator(
                 modifier = Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
-                height = 2.dp,
+                height = dimensionResource(R.dimen.size_2),
                 color = MaterialTheme.colorScheme.onSurface,
             )
         },

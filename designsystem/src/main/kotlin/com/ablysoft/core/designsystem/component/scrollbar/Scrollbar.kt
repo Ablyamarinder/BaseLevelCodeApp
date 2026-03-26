@@ -30,13 +30,14 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.packFloats
 import androidx.compose.ui.util.unpackFloat1
 import androidx.compose.ui.util.unpackFloat2
+import com.ablysoft.core.R
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withTimeout
@@ -173,7 +174,7 @@ internal fun Orientation.valueOf(intOffset: IntOffset) = when (this) {
  * @param minThumbSize the minimum size of the scrollbar thumb
  * @param interactionSource allows for observing the state of the scroll bar
  * @param thumb a composable for drawing the scrollbar thumb
- * @param onThumbMoved an function for reacting to scroll bar displacements caused by direct
+ * @param onThumbMoved a function for reacting to scroll bar displacements caused by direct
  * interactions on the scrollbar thumb by the user, for example implementing a fast scroll
  */
 @Composable
@@ -182,7 +183,7 @@ fun Scrollbar(
     state: ScrollbarState,
     modifier: Modifier = Modifier,
     interactionSource: MutableInteractionSource? = null,
-    minThumbSize: Dp = 40.dp,
+    minThumbSize: Dp = dimensionResource(R.dimen.size_40),
     onThumbMoved: ((Float) -> Unit)? = null,
     thumb: @Composable () -> Unit,
 ) {

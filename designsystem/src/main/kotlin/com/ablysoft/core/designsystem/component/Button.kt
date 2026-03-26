@@ -16,7 +16,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
+import com.ablysoft.core.R
 import com.ablysoft.core.designsystem.icon.AppIcons
 import com.ablysoft.core.designsystem.theme.CustomAppTheme
 
@@ -253,7 +255,7 @@ private fun CustomButtonContent(
 @Composable
 fun CustomButtonPreview() {
     CustomAppTheme {
-        CustomBackground(modifier = Modifier.size(150.dp, 50.dp)) {
+        CustomBackground(modifier = Modifier.size(dimensionResource(R.dimen.size_100), dimensionResource(R.dimen.size_50))) {
             CustomButton(onClick = {}, text = { Text("Test button") })
         }
     }
@@ -263,7 +265,7 @@ fun CustomButtonPreview() {
 @Composable
 fun CustomOutlinedButtonPreview() {
     CustomAppTheme {
-        CustomBackground(modifier = Modifier.size(150.dp, 50.dp)) {
+        CustomBackground(modifier = Modifier.size(dimensionResource(R.dimen.size_100), dimensionResource(R.dimen.size_50))) {
             CustomOutlinedButton(onClick = {}, text = { Text("Test button") })
         }
     }
@@ -273,7 +275,7 @@ fun CustomOutlinedButtonPreview() {
 @Composable
 fun CustomButtonLeadingIconPreview() {
     CustomAppTheme {
-        CustomBackground(modifier = Modifier.size(150.dp, 50.dp)) {
+        CustomBackground(modifier = Modifier.size(dimensionResource(R.dimen.size_100), dimensionResource(R.dimen.size_50))) {
             CustomButton(
                 onClick = {},
                 text = { Text("Test button") },

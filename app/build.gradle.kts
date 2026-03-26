@@ -1,3 +1,15 @@
+import java.io.FileInputStream
+import java.util.Properties
+
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) {
+        load(FileInputStream(file))
+    }
+}
+val mapsApiKey: String = localProperties.getProperty("MAPS_API_KEY") ?: ""
+
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -8,11 +20,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.newsampleapp"
+    namespace = "com.ablysoft.sampleapp"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.newsampleapp"
+        applicationId = "com.example.sampleapp"
         minSdk = 25
         targetSdk = 36
         versionCode = 1
@@ -21,6 +33,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "BASE_URL", "\"https://jsonplaceholder.typicode.com\"")
+        manifestPlaceholders["MAPS_API_KEY"] = mapsApiKey
     }
 
     buildTypes {
@@ -61,6 +74,7 @@ android {
 dependencies {
     implementation(project(":designsystem"))
     implementation(project(":database"))
+    implementation(project(":core"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -94,6 +108,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.coil.compose)
+    implementation(libs.maps.compose)
 
     //Uncomment this to add the timber logger dependency
     //implementation(libs.timber)

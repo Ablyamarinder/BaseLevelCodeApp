@@ -11,7 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
+import com.ablysoft.core.R
 import com.ablysoft.core.designsystem.icon.AppIcons
 import com.ablysoft.core.designsystem.theme.CustomAppTheme
 
@@ -94,7 +96,7 @@ fun CustomFilterChip(
 @Composable
 fun ChipPreview() {
     CustomAppTheme {
-        CustomBackground(modifier = Modifier.size(80.dp, 20.dp)) {
+        CustomBackground(modifier = Modifier.size(dimensionResource(R.dimen.size_80), dimensionResource(R.dimen.size_20))) {
             CustomFilterChip(selected = true, onSelectedChange = {}) {
                 Text("Chip")
             }

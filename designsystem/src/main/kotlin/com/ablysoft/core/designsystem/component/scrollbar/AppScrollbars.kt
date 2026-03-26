@@ -37,8 +37,10 @@ import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.node.DrawModifierNode
 import androidx.compose.ui.node.ModifierNodeElement
 import androidx.compose.ui.node.invalidateDraw
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import com.ablysoft.core.R
 import com.ablysoft.core.designsystem.component.scrollbar.ThumbState.Active
 import com.ablysoft.core.designsystem.component.scrollbar.ThumbState.Dormant
 import com.ablysoft.core.designsystem.component.scrollbar.ThumbState.Inactive
@@ -120,8 +122,8 @@ private fun ScrollableState.DraggableScrollbarThumb(
         modifier = Modifier
             .run {
                 when (orientation) {
-                    Vertical -> width(12.dp).fillMaxHeight()
-                    Horizontal -> height(12.dp).fillMaxWidth()
+                    Vertical -> width(dimensionResource(R.dimen.size_12)).fillMaxHeight()
+                    Horizontal -> height(dimensionResource(R.dimen.size_12)).fillMaxWidth()
                 }
             }
             .scrollThumb(this, interactionSource),
@@ -140,8 +142,8 @@ private fun ScrollableState.DecorativeScrollbarThumb(
         modifier = Modifier
             .run {
                 when (orientation) {
-                    Vertical -> width(2.dp).fillMaxHeight()
-                    Horizontal -> height(2.dp).fillMaxWidth()
+                    Vertical -> width(dimensionResource(R.dimen.size_2)).fillMaxHeight()
+                    Horizontal -> height(dimensionResource(R.dimen.size_2)).fillMaxWidth()
                 }
             }
             .scrollThumb(this, interactionSource),
