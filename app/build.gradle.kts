@@ -59,6 +59,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":designsystem"))
+    implementation(project(":database"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -90,6 +92,8 @@ dependencies {
     implementation(libs.androidx.navigation.ui)
     implementation(libs.androidx.navigation.dynamic.features.fragment)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.coil.compose)
 
     //Uncomment this to add the timber logger dependency
     //implementation(libs.timber)

@@ -1,6 +1,6 @@
 package com.example.newsampleapp.data.service
 
-import com.example.newsampleapp.data.model.PostModel
+import com.ablysoft.core.database.model.PostModel
 import retrofit2.Response
 import retrofit2.http.GET
 

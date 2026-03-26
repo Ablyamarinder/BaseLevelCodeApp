@@ -19,8 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import com.ablysoft.core.database.model.PostModel
 import com.example.newsampleapp.R
-import com.example.newsampleapp.data.model.PostModel
 import com.example.newsampleapp.ui.handlestates.UiState
 import com.example.newsampleapp.utils.TextUtils
 import com.example.newsampleapp.utils.toastutils.ToastUtils

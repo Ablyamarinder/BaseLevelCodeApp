@@ -1,18 +1,20 @@
 package com.example.newsampleapp.ui.posts
 
-import com.example.newsampleapp.data.database.DummyDAO
-import com.example.newsampleapp.data.database.toPost
-import com.example.newsampleapp.data.database.toPostModel
-import com.example.newsampleapp.data.model.PostModel
+import com.ablysoft.core.database.dao.PostsDao
+import com.ablysoft.core.database.model.PostModel
+import com.ablysoft.core.database.model.toPost
+import com.ablysoft.core.database.model.toPostModel
 import com.example.newsampleapp.data.service.ApiService
 import com.example.newsampleapp.domain.repository.PostsRepository
 import com.example.newsampleapp.utils.networkutil.ConnectivityObserver
 import javax.inject.Inject
+import kotlin.collections.isNotEmpty
+import kotlin.collections.map
 
 class PostRepositoryImpl @Inject constructor(
+    private val postDao: PostsDao,
     private val apiService: ApiService,
     private val connectivityObserver: ConnectivityObserver,
-    private val postDao: DummyDAO.PostsDao
 ) : PostsRepository {
 
     override suspend fun getPosts(): Result<List<PostModel>> {

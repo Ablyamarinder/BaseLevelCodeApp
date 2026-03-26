@@ -1,6 +1,6 @@
 package com.example.newsampleapp.domain.repository
 
-import com.example.newsampleapp.data.model.PostModel
+import com.ablysoft.core.database.model.PostModel
 
 interface PostsRepository {
 
