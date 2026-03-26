@@ -1,4 +1,4 @@
-package com.example.newsampleapp.data.model
+package com.ablysoft.core.database.model
 
 data class PostModel(
     val userId: Int,

@@ -1,7 +1,5 @@
-package com.example.newsampleapp.data.database
+package com.ablysoft.core.database.model
 
-import com.example.newsampleapp.data.database.DummyDAO.Post
-import com.example.newsampleapp.data.model.PostModel
 
 
 // Mapper.kt file
