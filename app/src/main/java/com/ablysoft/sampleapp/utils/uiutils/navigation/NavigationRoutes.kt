@@ -1,4 +1,4 @@
-package com.ablysoft.sampleapp.ui.navigation
+package com.ablysoft.sampleapp.utils.uiutils.navigation
 
 import kotlinx.serialization.Serializable
 
@@ -6,7 +6,10 @@ import kotlinx.serialization.Serializable
 object SplashScreen
 
 @Serializable
-object MainScreen
+object MenuScreen
+
+@Serializable
+object HomeScreen
 
 @Serializable
 object Account

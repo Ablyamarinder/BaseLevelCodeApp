@@ -1,10 +1,10 @@
-package com.ablysoft.sampleapp.ui.appupdate
+package com.ablysoft.sampleapp.utils.appupdate
 
 
 import androidx.lifecycle.viewModelScope
 import com.ablysoft.sampleapp.ui.BaseViewModel
 import com.ablysoft.sampleapp.ui.handlestates.UiState
-import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -23,7 +23,7 @@ class UpdateViewModel : BaseViewModel() {
     private fun checkForUpdate() {
         viewModelScope.launch {
             // Simulate network call to fetch remote version info
-            kotlinx.coroutines.delay(1000)
+            delay(1000)
 
             val remoteMinVersion = "1.5.0"
             val currentAppVersion = "1.0.0" // Use BuildConfig.VERSION_NAME in a real app

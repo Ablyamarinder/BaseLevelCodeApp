@@ -1,5 +1,6 @@
 package com.ablysoft.core.designsystem.theme
 
+import android.content.res.Configuration
 import android.os.Build
 import androidx.annotation.ChecksSdkIntAtLeast
 import androidx.annotation.VisibleForTesting
@@ -232,3 +233,10 @@ fun CustomAppTheme(
 
 @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.S)
 fun supportsDynamicTheming() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+
+
+/**
+ * Convenience wrapper for dark mode checking
+ */
+val Configuration.isSystemInDarkTheme
+    get() = (uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES

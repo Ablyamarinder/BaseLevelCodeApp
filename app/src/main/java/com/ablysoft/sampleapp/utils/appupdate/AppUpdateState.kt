@@ -1,4 +1,4 @@
-package com.ablysoft.sampleapp.ui.appupdate
+package com.ablysoft.sampleapp.utils.appupdate
 
 sealed class AppUpdateState {
 

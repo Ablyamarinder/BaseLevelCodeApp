@@ -32,6 +32,7 @@
     <dimen name="size_90">90dp</dimen>
     <dimen name="size_95">95dp</dimen>
     <dimen name="size_100">100dp</dimen>
+    <dimen name="size_200">200dp</dimen>
 
     <!-- Standard Text sizes -->
     <dimen name="text_size_10">10sp</dimen>

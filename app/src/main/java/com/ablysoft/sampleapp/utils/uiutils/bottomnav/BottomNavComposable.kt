@@ -1,4 +1,4 @@
-package com.ablysoft.sampleapp.ui.bottomnav
+package com.ablysoft.sampleapp.utils.uiutils.bottomnav
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon

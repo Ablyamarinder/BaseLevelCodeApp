@@ -15,29 +15,39 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.ablysoft.core.R
 import com.ablysoft.core.database.model.PostModel
+import com.ablysoft.core.designsystem.theme.CustomAppTheme
 import com.ablysoft.sampleapp.ui.handlestates.UiState
 import com.ablysoft.sampleapp.utils.TextUtils
 import com.ablysoft.sampleapp.utils.toastutils.ToastUtils
 
 @Composable
 fun PostListComposable(postViewModel: PostViewModel = hiltViewModel()) {
-    val state = postViewModel.uiState.collectAsState()
+    val state by postViewModel.uiState.collectAsState()
+    PostListContent(state = state)
+}
+
+@Composable
+fun PostListContent(state: UiState<List<PostModel>>) {
     val context = LocalContext.current
 
-    Column(modifier = Modifier.fillMaxSize()) {
-        when (state.value) {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        when (state) {
             is UiState.Loading -> {
-                CircularProgressIndicator()
+                CircularProgressIndicator(color = colorResource(R.color.primary))
             }
 
-            is UiState.Success<*> -> {
-                val list = (state.value as UiState.Success).data
+            is UiState.Success -> {
+                val list = state.data
                 LazyColumn(modifier = Modifier.fillMaxSize()) {
                     items(list.size) { index ->
                         PostItemComposable(list[index])
@@ -48,7 +58,7 @@ fun PostListComposable(postViewModel: PostViewModel = hiltViewModel()) {
             is UiState.Error -> {
                 ToastUtils.showLongToast(
                     context,
-                    (state.value as UiState.Error).errorMessage + ""
+                    state.errorMessage
                 )
             }
         }
@@ -86,5 +96,18 @@ fun PostItemComposable(item: PostModel) {
                 style = MaterialTheme.typography.titleMedium
             )
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PostComposablePreview() {
+    CustomAppTheme {
+        // Mocking the state for the preview to avoid ViewModel instantiation issues
+        val mockPosts = listOf(
+            PostModel(id = 1, userId = 1, title = "Sample Title 1", body = "Sample Body 1"),
+            PostModel(id = 2, userId = 1, title = "Sample Title 2", body = "Sample Body 2")
+        )
+        PostListContent(state = UiState.Success(mockPosts))
     }
 }
