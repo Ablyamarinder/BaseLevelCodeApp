@@ -20,9 +20,3 @@ enum class Destination(
     MENU(MenuScreen, R.string.menu, Icons.Default.Menu, "Menu"),
     ACCOUNT(AccountScreen, R.string.account, Icons.Default.AccountCircle, "Account")
 }
-
-val TOP_LEVEL_NAV_ITEMS = mapOf(
-    HomeScreen to Destination.HOME,
-    MenuScreen to Destination.MENU,
-    AccountScreen to Destination.ACCOUNT,
-)

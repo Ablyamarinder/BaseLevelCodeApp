@@ -7,4 +7,8 @@
     <string name="account">Account</string>
     <string name="search">Search</string>
     <string name="settings">Settings</string>
+    <string name="input_placeholder">Input Value</string>
+    <string name="confirm">Confirm</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="okay">Okay</string>
 </resources>

@@ -10,8 +10,8 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -31,14 +31,13 @@ fun AppMain(
     appState: AppState,
     navController: NavHostController = rememberNavController()
 ) {
-    val state = appState.navigationState.currentTopLevelKey
-    val scope = rememberCoroutineScope()
-    val snackbarHostState = remember { SnackbarHostState() }
-    AppLog.d("navigator $state")
+    val state = appState.backStackRoutes.collectAsState()
+    val snackBarHostState = remember { SnackbarHostState() }
+    AppLog.d("navigator ${state.value}")
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         snackbarHost = {
-            SnackbarHost(hostState = snackbarHostState)
+            SnackbarHost(hostState = snackBarHostState)
         },
         topBar = {
             CustomTopAppBar(
@@ -59,7 +58,11 @@ fun AppMain(
         },
         bottomBar = {
             BottomNavComposable {
-                navController.navigate(route = it)
+                navController.navigate(route = it) {
+                    popUpTo(it) {
+                        inclusive = true
+                    }
+                }
             }
         }
 

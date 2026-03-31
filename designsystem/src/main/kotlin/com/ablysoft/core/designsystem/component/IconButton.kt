@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.ablysoft.core.designsystem.icon.AppIcons
 import com.ablysoft.core.designsystem.theme.CustomAppTheme
 
@@ -55,7 +56,7 @@ fun CustomIconToggleButton(
     }
 }
 
-@ThemePreviews
+@Preview
 @Composable
 fun IconButtonPreview() {
     CustomAppTheme {
@@ -78,7 +79,7 @@ fun IconButtonPreview() {
     }
 }
 
-@ThemePreviews
+@Preview
 @Composable
 fun IconButtonPreviewUnchecked() {
     CustomAppTheme {

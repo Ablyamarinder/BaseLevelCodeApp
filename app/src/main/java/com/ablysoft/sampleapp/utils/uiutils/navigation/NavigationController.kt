@@ -17,7 +17,7 @@ import com.ablysoft.sampleapp.ui.splash.SplashComposable
 // Define the MyApp composable, including the `NavController` and `NavHost`.
 @Composable
 fun MyAppNavController(navController: NavHostController = rememberNavController()) {
-    val animationDuration = 500
+    val animationDuration = 300
     NavHost(navController, startDestination = HomeScreen) {
         composable<SplashScreen>(
             exitTransition = {

@@ -33,6 +33,7 @@ fun DynamicAsyncImage(
     modifier: Modifier = Modifier,
     imageUrl: String,
     contentDescription: String? = "",
+    contentScale: ContentScale = ContentScale.Fit,
     placeholder: Painter = painterResource(R.drawable.ic_placeholder_default),
 ) {
     val iconTint = LocalTintTheme.current.iconTint
@@ -60,7 +61,7 @@ fun DynamicAsyncImage(
             )
         }
         Image(
-            contentScale = ContentScale.Crop,
+            contentScale = contentScale,
             painter = if (isError.not() && !isLocalInspection) imageLoader else placeholder,
             contentDescription = contentDescription,
             colorFilter = if (iconTint != Unspecified) ColorFilter.tint(iconTint) else null,

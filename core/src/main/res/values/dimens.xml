@@ -13,6 +13,7 @@
     <dimen name="size_10">10dp</dimen>
     <dimen name="size_12">12dp</dimen>
     <dimen name="size_15">15dp</dimen>
+    <dimen name="size_16">16dp</dimen>
     <dimen name="size_18">18dp</dimen>
     <dimen name="size_20">20dp</dimen>
     <dimen name="size_24">24dp</dimen>
@@ -33,6 +34,8 @@
     <dimen name="size_95">95dp</dimen>
     <dimen name="size_100">100dp</dimen>
     <dimen name="size_200">200dp</dimen>
+    <dimen name="size_300">300dp</dimen>
+    <dimen name="size_350">350dp</dimen>
 
     <!-- Standard Text sizes -->
     <dimen name="text_size_10">10sp</dimen>

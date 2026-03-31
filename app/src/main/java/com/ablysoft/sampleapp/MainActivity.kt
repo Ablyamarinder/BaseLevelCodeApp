@@ -62,7 +62,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             val networkStatus = networkViewModel.networkStatus.collectAsState()
-            val appState = rememberAppState()
+            val appState = rememberAppState(navController)
             CustomAppTheme {
                 CustomBackground {
                     AppMain(appState, navController)

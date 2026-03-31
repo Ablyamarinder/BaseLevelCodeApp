@@ -31,8 +31,10 @@ fun BottomNavComposable(onTabSelected: (Any) -> Unit) {
             NavigationBarItem(
                 selected = selectedDestination.intValue == index,
                 onClick = {
-                    onTabSelected.invoke(destination.route)
-                    selectedDestination.intValue = index
+                    if (selectedDestination.intValue != index) {
+                        onTabSelected.invoke(destination.route)
+                        selectedDestination.intValue = index
+                    }
                 },
                 icon = {
                     Icon(

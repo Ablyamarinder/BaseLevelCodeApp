@@ -1,29 +1,28 @@
 package com.ablysoft.sampleapp.utils.uiutils.navigation
 
+import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.navigation3.runtime.NavKey
-import com.ablysoft.core.designsystem.component.navigation.NavigationState
-import com.ablysoft.core.designsystem.component.navigation.rememberNavigationState
-import com.ablysoft.sampleapp.utils.uiutils.bottomnav.TOP_LEVEL_NAV_ITEMS
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 @Composable
 fun rememberAppState(
+    navigationState: NavHostController = rememberNavController(),
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
 ): AppState {
-    val navigationState = rememberNavigationState(HomeScreen, TOP_LEVEL_NAV_ITEMS.keys)
 
     return remember(
         navigationState,
         coroutineScope
     ) {
         AppState(
-            navigationState = navigationState,
+            navController = navigationState,
             coroutineScope = coroutineScope
         )
     }
@@ -31,15 +30,18 @@ fun rememberAppState(
 
 @Stable
 class AppState(
-    val navigationState: NavigationState,
+    navController: NavHostController,
     coroutineScope: CoroutineScope,
 ) {
 
-    /**
-     * The top level nav keys that have unread news resources.
-     */
-    val topLevelNavKey: Flow<Set<NavKey>> = flow {
-        navigationState.topLevelKeys
-    }
-
+    @SuppressLint("RestrictedApi")
+    val backStackRoutes = navController.currentBackStack
+        .map { stackEntries ->
+            stackEntries.map { entry -> entry.destination.route }
+        }
+        .stateIn(
+            scope = coroutineScope,
+            started = SharingStarted.WhileSubscribed(5_000),
+            initialValue = emptyList()
+        )
 }
