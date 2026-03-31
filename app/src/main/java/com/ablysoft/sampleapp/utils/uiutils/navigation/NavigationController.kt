@@ -3,10 +3,7 @@ package com.ablysoft.sampleapp.utils.uiutils.navigation
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.EaseIn
 import androidx.compose.animation.core.EaseOut
-import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -20,15 +17,12 @@ import com.ablysoft.sampleapp.ui.splash.SplashComposable
 // Define the MyApp composable, including the `NavController` and `NavHost`.
 @Composable
 fun MyAppNavController(navController: NavHostController = rememberNavController()) {
+    val animationDuration = 500
     NavHost(navController, startDestination = HomeScreen) {
         composable<SplashScreen>(
             exitTransition = {
-                fadeOut(
-                    animationSpec = tween(
-                        300, easing = LinearEasing
-                    )
-                ) + slideOutOfContainer(
-                    animationSpec = tween(300, easing = EaseOut),
+                slideOutOfContainer(
+                    animationSpec = tween(animationDuration, easing = EaseOut),
                     towards = AnimatedContentTransitionScope.SlideDirection.End
                 )
             }
@@ -39,24 +33,15 @@ fun MyAppNavController(navController: NavHostController = rememberNavController(
                 navController.navigate(route = HomeScreen)
             }
         }
-        val animationDuration = 500
         composable<HomeScreen>(
             enterTransition = {
-                fadeIn(
-                    animationSpec = tween(
-                        animationDuration, easing = LinearEasing
-                    )
-                ) + slideIntoContainer(
+                slideIntoContainer(
                     animationSpec = tween(animationDuration, easing = EaseIn),
                     towards = AnimatedContentTransitionScope.SlideDirection.Start
                 )
             },
             exitTransition = {
-                fadeOut(
-                    animationSpec = tween(
-                        animationDuration, easing = LinearEasing
-                    )
-                ) + slideOutOfContainer(
+                slideOutOfContainer(
                     animationSpec = tween(animationDuration, easing = EaseOut),
                     towards = AnimatedContentTransitionScope.SlideDirection.End
                 )
@@ -68,21 +53,13 @@ fun MyAppNavController(navController: NavHostController = rememberNavController(
 
         composable<MenuScreen>(
             enterTransition = {
-                fadeIn(
-                    animationSpec = tween(
-                        animationDuration, easing = LinearEasing
-                    )
-                ) + slideIntoContainer(
+                slideIntoContainer(
                     animationSpec = tween(animationDuration, easing = EaseIn),
                     towards = AnimatedContentTransitionScope.SlideDirection.Start
                 )
             },
             exitTransition = {
-                fadeOut(
-                    animationSpec = tween(
-                        animationDuration, easing = LinearEasing
-                    )
-                ) + slideOutOfContainer(
+                slideOutOfContainer(
                     animationSpec = tween(animationDuration, easing = EaseOut),
                     towards = AnimatedContentTransitionScope.SlideDirection.End
                 )
@@ -91,23 +68,15 @@ fun MyAppNavController(navController: NavHostController = rememberNavController(
             PostListComposable()
         }
 
-        composable<Account>(
+        composable<AccountScreen>(
             enterTransition = {
-                fadeIn(
-                    animationSpec = tween(
-                        animationDuration, easing = LinearEasing
-                    )
-                ) + slideIntoContainer(
+                slideIntoContainer(
                     animationSpec = tween(animationDuration, easing = EaseIn),
                     towards = AnimatedContentTransitionScope.SlideDirection.Start
                 )
             },
             exitTransition = {
-                fadeOut(
-                    animationSpec = tween(
-                        animationDuration, easing = LinearEasing
-                    )
-                ) + slideOutOfContainer(
+                slideOutOfContainer(
                     animationSpec = tween(animationDuration, easing = EaseOut),
                     towards = AnimatedContentTransitionScope.SlideDirection.End
                 )

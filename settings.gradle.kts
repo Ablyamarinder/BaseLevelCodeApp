@@ -26,7 +26,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "NewSampleApp"
+rootProject.name = "BaseSampleApp"
 include(":app")
 include(":core")
 include(":designsystem")

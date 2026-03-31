@@ -2,7 +2,7 @@ package com.ablysoft.core.designsystem.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -17,7 +17,6 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalInspectionMode
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter.State.Error
@@ -31,9 +30,9 @@ import com.ablysoft.core.designsystem.theme.LocalTintTheme
  */
 @Composable
 fun DynamicAsyncImage(
-    imageUrl: String,
-    contentDescription: String?,
     modifier: Modifier = Modifier,
+    imageUrl: String,
+    contentDescription: String? = "",
     placeholder: Painter = painterResource(R.drawable.ic_placeholder_default),
 ) {
     val iconTint = LocalTintTheme.current.iconTint
@@ -56,8 +55,8 @@ fun DynamicAsyncImage(
             CircularProgressIndicator(
                 modifier = Modifier
                     .align(Alignment.Center)
-                    .size(dimensionResource(R.dimen.size_80)),
-                color = MaterialTheme.colorScheme.tertiary,
+                    .fillMaxHeight(0.5f),
+                color = MaterialTheme.colorScheme.primary,
             )
         }
         Image(

@@ -109,6 +109,8 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.coil.compose)
     implementation(libs.maps.compose)
+    implementation(libs.app.update)
+    implementation(libs.app.update.ktx)
 
     //Uncomment this to add the timber logger dependency
     //implementation(libs.timber)

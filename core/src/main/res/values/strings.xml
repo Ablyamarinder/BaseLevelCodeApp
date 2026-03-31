@@ -2,4 +2,9 @@
     <string name="app_name">Sample App</string>
     <string name="no_internet_message">No Internet, Please try again later</string>
     <string name="internet_reconnected_message">You are back online</string>
+    <string name="home">Home</string>
+    <string name="menu">Menu</string>
+    <string name="account">Account</string>
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
 </resources>

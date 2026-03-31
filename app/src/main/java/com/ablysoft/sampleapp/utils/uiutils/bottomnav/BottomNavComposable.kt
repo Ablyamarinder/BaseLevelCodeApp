@@ -12,7 +12,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
 import com.ablysoft.core.R
 
 @Composable
@@ -21,8 +21,8 @@ fun BottomNavComposable(onTabSelected: (Any) -> Unit) {
     val selectedDestination = rememberSaveable { mutableIntStateOf(startDestination.ordinal) }
     NavigationBar(
         modifier = Modifier.shadow(
-            elevation = 12.dp,
-            shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
+            elevation = dimensionResource(R.dimen.size_12),
+            shape = RoundedCornerShape(dimensionResource(R.dimen.size_20))
         ),
         windowInsets = NavigationBarDefaults.windowInsets,
         tonalElevation = dimensionResource(R.dimen.size_10)
@@ -40,7 +40,7 @@ fun BottomNavComposable(onTabSelected: (Any) -> Unit) {
                         contentDescription = destination.contentDescription
                     )
                 },
-                label = { Text(destination.label) }
+                label = { Text(stringResource(destination.stringId)) }
             )
         }
     }

@@ -9,6 +9,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.ablysoft.core.designsystem.theme.CustomAppTheme
 
 @Composable
@@ -45,7 +46,7 @@ fun CustomTopicTag(
     }
 }
 
-@ThemePreviews
+@Preview
 @Composable
 fun TagPreview() {
     CustomAppTheme {

@@ -1,15 +1,16 @@
 package com.ablysoft.sampleapp.utils.uiutils.navigation
 
+import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
 @Serializable
-object SplashScreen
+object SplashScreen : NavKey
 
 @Serializable
-object MenuScreen
+object MenuScreen : NavKey
 
 @Serializable
-object HomeScreen
+object HomeScreen : NavKey
 
 @Serializable
-object Account
+object AccountScreen : NavKey
