@@ -20,7 +20,6 @@ kotlinxCoroutinesCore = "1.10.2"
 preferenceKtx = "1.2.1"
 lifecycleViewmodelKtx = "2.11.0-alpha03"
 room = "2.8.4"
-timber = "5.0.1"
 appcompat = "1.7.1"
 material = "1.13.0"
 activity = "1.13.0"
@@ -43,7 +42,6 @@ material3 = "1.4.0"
 uiToolingPreview = "1.10.6"
 uiTooling = "1.10.6"
 mapsCompose = "8.2.2"
-coreAnimation = "1.0.0"
 
 androidxNavigation3 = "1.0.1"
 androidxLifecycleViewModelNavigation3 = "2.10.0"
@@ -106,7 +104,6 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", vers
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
 maps-compose = { group = "com.google.maps.android", name = "maps-compose", version.ref = "mapsCompose" }
 
-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 app-update = { group = "com.google.android.play", name = "app-update", version.ref = "appUpdate" }
 app-update-ktx = { group = "com.google.android.play", name = "app-update-ktx", version.ref = "appUpdateKtx" }
 
